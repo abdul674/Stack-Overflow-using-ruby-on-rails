@@ -1,0 +1,38 @@
+
+<div class="col-md-12 post-layout">
+	<div class="voting">
+		<%= render 'shared/upvote', vote_link: "/answers/upvote/#{ answer.id }" %>
+
+		<div id="votes-count-<%= answer.id %>" class="votes count">
+			<%= answer.votes %>
+		</div>
+
+		<%= render 'shared/downvote', vote_link: "/answers/downvote/#{ answer.id }" %>
+
+		<% if logged_in? && current_user.id == answer.question.user_id %>
+			<%= render 'answers/accept', answer: answer %>
+		<% elsif answer.accepted? %>
+			<div class="glyphicon glyphicon-ok accepted"> </div>
+		<% end %>
+	</div>
+
+	<div class="question-content">
+		<h4> <%= answer.content %> </h4>
+	</div>
+
+	<div class="tmp">
+		
+	</div>
+
+	<div class="comments-container">
+		<div class="comments" id="comments-answer-<%= answer.id %>">
+			<% answer.comments.each do |comment| %>
+				<%= render 'comments/comment', comment: comment %>
+			<% end %>
+		</div>
+
+		<div class="add-comment">
+			<%= render 'answers/add_comment', answer: answer %>
+		</div>
+	</div>
+</div>

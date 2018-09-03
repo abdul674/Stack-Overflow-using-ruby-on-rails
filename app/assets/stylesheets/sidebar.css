@@ -1,0 +1,43 @@
+/* The side navigation menu */
+.sidebar{
+  margin: 0;
+  padding: 0;
+  padding-top: 20px;
+  overflow: auto;
+}
+
+aside.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 60px;
+}
+
+/* Sidebar links */
+.sidebar a {
+  display: block;
+  color: grey;
+  padding: 10px;
+  text-decoration: none;
+}
+
+/* Active/current link */
+.sidebar a.active {
+  color: black;
+  font-weight: bold;
+  background: lightgrey;
+  border-right: 4px solid orange;
+}
+
+/* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+  font-weight: bold;
+}
+
+.sidebar p {
+  padding-left: 10px;
+  color: grey;
+}
+
+.lower-sidebar-left {
+  text-indent: 20px;
+}

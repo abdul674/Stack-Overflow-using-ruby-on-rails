@@ -1,0 +1,32 @@
+
+<aside class="sticky">
+	<div class="sidebar col-md-2">
+		<ul class="list-unstyled">
+			<li><a class="<%= yield(:class) == "Home" ? "active" : " " %>" href="<%= root_path %>">Home</a></li>
+			<p> PUBLIC </p>
+			
+		  	<li>
+		  		<a class="<%= yield(:class) == "Stackoverflow" ? "active" : "" %> " href="<%= questions_path %>?tag=all">
+		  			<span class="glyphicon glyphicon-globe"></span> Stack Overflow
+		  		</a>
+		  	</li>
+		  	
+		  	<ul class="list-unstyled lower-sidebar-left">
+		  	<li>
+		  		<a class="<%= yield(:class) == "Tags" ? "active" : "" %> " href="/categories">
+		  			Tags
+		  		</a>
+		  	</li>
+		  	
+		  	<li>
+		  		<a class="<%= yield(:class) == "Users" ? "active" : "" %>" href="<%= users_path %>">
+		  			Users
+		  		</a>
+		  	</li>
+		  	
+		  	<li><a class="<%= yield(:class) == "Jobs" ? "active" : "" %>" href="#Jobs" style="visibility: hidden;">Jobs</a></li>
+			</ul>
+		
+		</ul>
+	</div>
+</aside>

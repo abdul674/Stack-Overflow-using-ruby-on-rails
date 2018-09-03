@@ -1,0 +1,31 @@
+<a id="logo" href="<%= root_path %>"> stack<strong>overflow</strong> </a>
+
+<%= form_tag(questions_path, class: "form-inline", id: 'tag_search', method: :get) do |f| %>
+
+	<div class="input-group">
+	  <input type="text" name="tag" class='form-control' placeholder='Search' %>
+	  <div class="input-group-addon" style="min-width: auto;">
+	    <span class="glyphicon glyphicon-search"></span>
+	  </div>
+	</div>
+
+	<ul class="nav navbar-nav navbar-right">
+  	<% if logged_in? %>
+  		<li><%= link_to current_user.name, current_user %> </li>
+  	<% end %>
+    
+    <!--
+      <li> <%= link_to "", '#', class: "glyphicon glyphicon-inbox" %> </li>
+      <li> <%= link_to "", '#', class: "glyphicon glyphicon-question-sign" %> </li>
+    -->
+
+
+    <% if !logged_in? %>
+    	<li> <%= link_to "Log In", login_path %> </li>
+    	<li> <%= link_to "Sign Up", new_user_path, class: 'btn btn-primary', id: "signup_button"%></li>
+    <% else %>
+    	<li> <%= link_to "Log out", logout_path, method: "delete" %> </li>
+    <% end %>
+  </ul>
+
+<% end %>

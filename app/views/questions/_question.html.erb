@@ -1,0 +1,36 @@
+<div class="question-title col-md-12">
+	<h2> <%= question.title %> </h2>
+</div>
+
+<div class="col-md-9 post-layout">
+	<div class="voting">
+		<%= render 'shared/upvote', vote_link: "/questions/upvote/#{ question.id }" %>
+
+		<div id="votes-count" class="votes count">
+			<%= question.votes %>
+		</div>
+
+		<%= render 'shared/downvote', vote_link: "/questions/downvote/#{ question.id }" %>
+	</div>
+
+	<div class="question-content">
+		<h4> <%= question.content %> </h4>
+	</div>
+
+	<div class="tmp">
+		
+	</div>
+
+	<div class="comments-question-<%= question.id %>">
+		<div class="comments" id="comments-question-<%= @question.id %>">
+			<% @question.comments.each do |comment| %>
+				<%= render 'comments/comment', comment: comment %>
+			<% end %>
+		</div>
+
+		<div class="add-comment">
+			<%= render 'questions/add_comment' %>
+		</div>
+	</div>
+
+</div>

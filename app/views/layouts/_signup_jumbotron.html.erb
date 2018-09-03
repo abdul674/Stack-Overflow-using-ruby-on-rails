@@ -1,0 +1,32 @@
+
+<%= form_for User.new do |f| %>
+	<div class="input-group">
+	  <div class="input-group-addon">
+	    <span class="input-group-text"> Display name </span>
+	  </div>
+	  <%= f.text_field :name, placeholder: "Username", class: "form-control" %>
+	</div>
+
+	<div class="input-group mb-3">
+	  <div class="input-group-addon">
+	    <span class="input-group-text"> Email address </span>
+	  </div>
+	  <%= f.email_field :email, placeholder: "Email", class: "form-control" %>
+	</div>
+
+	<div class="input-group mb-3">
+	  <div class="input-group-addon">
+	    <span class="input-group-text"> Password </span>
+	  </div>
+	  <%= f.password_field :password, placeholder: "Password", class: "form-control" %>
+	</div>
+
+	<div class="input-group mb-3">
+	  <div class="input-group-addon">
+	    <span class="input-group-text"> Confirm Password </span>
+	  </div>
+	  <%= f.password_field :password, placeholder: "Password Confirmation", class: "form-control" %>
+	</div>
+
+	<%= f.submit "Signup", class: "btn btn-primary signup-btn" %>
+<% end %>

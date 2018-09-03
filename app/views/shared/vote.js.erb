@@ -1,0 +1,7 @@
+$("#flash-messages").html("<%= j(render('layouts/flash_messages'))%>")
+
+<% if element.class == Question %>
+	$("#votes-count").html("<%= element.votes %>")
+<% else %>
+	$("#votes-count-<%= element.id %>").html("<%= element.votes %>")
+<% end %>

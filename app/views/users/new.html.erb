@@ -1,0 +1,54 @@
+<% provide(:title, "Signup") %>
+<% provide(:class, "Users") %>
+
+
+<div class='row'>
+	<div class='col-md-4 col-md-offset-4' id="signup">
+		
+		<h1> Sign Up </h1>
+
+		<%= form_for(@user) do |f| %>
+			<div class="form-group <%= "has-error" if @user.errors.include?(:name) %>">
+				<%= f.label          :name, for: "name", class: "control-label" %><br>
+				<%= f.text_field     :name, 
+															class: "form-control", 
+															placeholder: "Display Name" %>
+				<% @user.errors.full_messages_for(:name).each do |message| %>
+          <span class="help-block"><%= message %></span>
+        <% end %>
+      </div>
+
+      <div class="form-group <%= "has-error" if @user.errors.include?(:email) %>">
+				<%= f.label          :email, for: "email", class: "control-label" %><br>
+				<%= f.text_field     :email, 
+															class: "form-control", 
+															placeholder: "Email" %>
+				<% @user.errors.full_messages_for(:email).each do |message| %>
+          <span class="help-block"><%= message %></span>
+        <% end %>
+      </div>
+
+      <div class="form-group <%= "has-error" if @user.errors.include?(:password) %>">
+				<%= f.label          :password, for: "password", class: "control-label" %><br>
+				<%= f.password_field     :password, 
+															class: "form-control", 
+															placeholder: "Password" %>
+				<% @user.errors.full_messages_for(:password).each do |message| %>
+          <span class="help-block"><%= message %></span>
+        <% end %>
+      </div>
+
+      <div class="form-group <%= "has-error" if @user.errors.include?(:password_confirmation) %>">
+				<%= f.label          :password_confirmation, for: "password_confirmation", class: "control-label" %><br>
+				<%= f.password_field     :password_confirmation, 
+															class: "form-control", 
+															placeholder: "Password Confirmation" %>
+				<% @user.errors.full_messages_for(:password_confirmation).each do |message| %>
+          <span class="help-block"><%= message %></span>
+        <% end %>
+      </div>
+
+			<%= f.submit "Sign Up", class: "btn btn-primary" %>
+		<% end %>
+	</div>
+</div>

@@ -1,0 +1,22 @@
+<div class="comment" id="comment-<%= comment.id %>">
+	<%= comment.content %> - 
+
+	<span class="comment-user">
+		<%= link_to User.find_by(id: comment.user_id).name, user_path(comment.user_id) %> 
+	</span>
+
+	<span class="timestamp">
+		 <%= comment.created_at %>
+	</span>
+
+	<span class="options">
+		<% if current_user.present? && current_user.id == comment.user_id %>
+			
+			<%= link_to comment_path(comment.id), method: :delete, class: "no-btn", remote: true do %>
+			  <i class="glyphicon glyphicon-trash"></i>
+			<% end %>
+
+		<% end %>
+	</span>
+
+</div>

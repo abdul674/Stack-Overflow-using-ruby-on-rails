@@ -1,0 +1,49 @@
+<% provide(:title, "Newest Questions") %>
+<% provide(:class, "Stackoverflow") %>
+
+<div class="col-md-9">
+
+	<div class="col-md-12">
+		<h2>
+			<%= title %>
+			<span><%= link_to "Ask question", new_question_path, class: "btn btn-primary", style: "float: right;" %></span> 
+		</h2> 
+	</div>
+
+	<div class="btn-group col-md-12" role="group">
+		<div style="float: right;">
+			<strong> Sort By </strong>
+		  <a href="/questions?sort_by=created_at&sequence=DESC" 
+		  	 class="btn btn-sort-by<%= " sort_by" if sort_by == "created_at" && sequence == "DESC" %>">
+		  	Newest
+		  </a>
+		  
+		  <a href="/questions?sort_by=votes&sequence=DESC" 
+		  	 class="btn btn-sort-by<%= " sort_by" if sort_by == "votes" && sequence == "DESC" %>">
+		  	Votes
+		  </a>
+		  
+		  <a href="/questions?sort_by=answers&sequence=DESC" 
+		  	 class="btn btn-sort-by<%= " sort_by" if sort_by == "answers" && sequence == "DESC" %>">
+		  	Most Answered
+		  </a>
+
+		  <a href="/questions?sort_by=answers&sequence=ASC" 
+		  	 class="btn btn-sort-by<%=" sort_by" if sort_by == "answers" && sequence == "ASC" %>">
+		  	Least Answered
+		  </a>
+	  </div>
+	</div>
+	
+	<div class="col-md-12">
+		<h4> <%= pluralize(count(@questions), "question") %> </h4>
+
+		<ol class="questions list-unstyled">
+			<% @questions.each do |question| %>
+				<%= render 'questions/all_question', question: question %>
+			<% end %>
+		</ol>
+
+		<%= will_paginate @questions %>
+	</div>
+</div>

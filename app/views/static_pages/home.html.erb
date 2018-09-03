@@ -1,0 +1,25 @@
+<% provide(:title, "Stack Overflow - Where Developers Learn, Share and Build Careers") %>
+<% provide(:class, "Home") %>
+
+<div class="col-md-9">
+
+	<div class="col-md-12" style="padding:0; margin: 0;">
+		<div class="col-md-9" style="padding: 0; margin: 0;">
+			<h2> Top Questions </h2>
+		</div>
+		<div class="col-md-3" style="padding-top: 20px; margin: 0;">
+			<%= link_to "Ask question", new_question_path, class: "btn btn-primary" %>
+		</div>
+	</div>
+
+	<ol class="questions list-unstyled col-md-12">
+		<% for question in Question.first(20) %>
+			<%= render 'questions/top_question', question: question %>
+		<% end %>
+	</ol>
+
+	<h4>
+		Looking for more? Browse the <a href="<%= questions_path %>"> complete list of questions </a>.
+	</h4>
+
+</div>

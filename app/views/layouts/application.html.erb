@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> <%= yield(:title) %> </title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render 'layouts/header' %>
+
+    <div class="container-fluid">
+
+      <% if !logged_in? && yield(:class) == "Home" %>
+        <div class="jumbotron jumbotron-fluid">
+          <div class="container">
+            <div class="col-md-6" style="color: white;">
+              <h3> <strong> Learn, Share, Build </strong> </h3>
+
+              <h4> 
+                Each month, over 50 million developers come to Stack Overflow to learn, share 
+                their knowledge, and build their careers. 
+
+                Join the world’s largest developer community. 
+              </h4>
+            </div>
+            
+            <div class="col-md-6">
+              <%= render 'layouts/signup_jumbotron' %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="col-md-8 col-md-offset-2 col-sm-12">
+        
+          <%= render 'layouts/sidebar_left' %>
+
+          <div class="content col-md-10">
+            <div id="flash-messages">
+              <%= render 'layouts/flash_messages' %>
+            </div>
+
+            <%= yield %>
+        </div>
+      </div>
+    </div>
+
+    <%= render 'layouts/footer' %>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+<%= form_tag("/comments", remote: true) do |f| %>
+
+	<%= text_field_tag "content-question-#{@question.id}", nil, 
+											class:       'comment-field', 
+											placeholder: 'Add comment' %>
+
+	<%= hidden_field_tag :question_id, @question.id %>
+
+<% end %>

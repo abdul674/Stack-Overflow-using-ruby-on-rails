@@ -1,0 +1,15 @@
+<% provide(:title, @question.title) %>
+<% provide(:class, "Stackoverflow") %>
+
+<div>
+	<%= render 'questions/question', question: @question %>
+
+	<div class="col-md-12">
+		<h2> <%= pluralize(@answers.count, "Answer") %> </h2>
+	</div>
+
+	<div class="col-md-9" style="padding: 0px;">
+		<%= render @answers %>
+		<%= render 'answers/new_answer' %>
+	</div>
+</div>

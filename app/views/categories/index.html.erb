@@ -1,0 +1,11 @@
+<% provide(:title, "Tags - Stack Overflow") %>
+<% provide(:class, "Tags") %>
+
+<% @categories.each do |tag| %>
+	<div class="col-md-3">
+		<%= form_tag(questions_path, class: "category tags", method: :get) do |f| %>
+			<%= submit_tag tag[0], name: "tag", class: "category btn btn-sm" %>
+		<% end %>
+		 x <%= tag[1] %>
+	</div>
+<% end %>
