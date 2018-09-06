@@ -25,7 +25,7 @@ class AnswersController < ApplicationController
 		end
 
 		respond_to do |format|
-			format.html redirect_to @question
+			format.html { redirect_to @question }
 		end
 	end
 

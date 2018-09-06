@@ -8,17 +8,19 @@ class Answer < ApplicationRecord
 	validates :content, presence: true
 
 	def accept
-		answer = self
-		accepted_answer = Answer.where.not(id: answer.id).find_by(accepted: true, question_id: answer.question_id)
+		accepted_answer = self.question.answers.where.not(id: self.id).find_by(accepted: true)
 
-		transaction do 
-			answer.accepted = !answer.accepted
-			answer.save!
+		self.transaction do 
+			self.accepted = !self.accepted
+			self.save!
 			
 			if accepted_answer.present?
 				accepted_answer.accepted = false
 				accepted_answer.save!
+			else
+				true
 			end
+
 		end
 	end
 end

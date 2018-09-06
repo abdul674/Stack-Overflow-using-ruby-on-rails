@@ -36,8 +36,8 @@ class Ability
     if user.present?
       can :crud,   Question,           user_id: user.id
       can :crud,   Comment,  		   user_id: user.id
-      can :update, Vote
       can :accept, Answer, question: { user_id: user.id }
+      can :update, Vote
     end
   end
 end

@@ -17,9 +17,6 @@ class QuestionsController < ApplicationController
 
   # GET  '/questions/new'
   def new
-    respond_to do |format|
-      format.html 
-    end
   end
 
   # POST  '/questions'
