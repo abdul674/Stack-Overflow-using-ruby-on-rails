@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -22,3 +23,8 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+=======
+# Stack-Overflow-using-ruby-on-rails
+
+A clone of stack overflow site usning ruby on rails.
+>>>>>>> 191bdde27c0ce3bee5ab67a90c5188ab40cc2675
