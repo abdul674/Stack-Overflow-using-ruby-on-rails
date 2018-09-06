@@ -1,0 +1,39 @@
+// Place all the styles related to the Answers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.stats {
+	.answered {
+		border: 1px solid green;
+		border-radius: 5px;
+		padding: 0px;
+	}
+
+	.answered-accepted {
+		div, p {
+			color: white;
+		}
+
+		padding: 0px;
+		border-radius: 5px;
+		background-color: #5fba7d;
+	}
+
+	.not-answered {
+		padding: 0px;
+	}
+}
+
+.answer-container {
+	padding-left: 0px;
+	margin: 0px;
+	border-top: 1px solid lightgrey;
+}
+
+.new-answer.col-md-12 {
+	padding: 0;
+	margin: 0;
+	padding-top: 30px;
+	padding-left: 15px;
+	margin-bottom: 20px;
+}

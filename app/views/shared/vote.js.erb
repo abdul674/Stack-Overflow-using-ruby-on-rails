@@ -1,0 +1,7 @@
+$("#flash-messages").html("<%= j(render('layouts/flash_messages'))%>")
+
+<% if @vote.voteable_type == "Question" %>
+	$("#votes-count").html("<%= @vote.voteable.votes.sum(:value) %>")
+<% else %>
+	$("#votes-count-<%= @vote.voteable_id %>").html("<%= @vote.voteable.votes.sum(:value) %>")
+<% end %>

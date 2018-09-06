@@ -1,0 +1,9 @@
+<% provide(:title, "Tags - Stack Overflow") %>
+<% provide(:class, "Tags") %>
+
+<% @categories.each do |category| %>
+	<div class="col-md-3">
+		<%= link_to category.tag, questions_path(tag: category.tag), class: "category tags btn btn-sm" %>  
+		 x <%= category.tag_count %>
+	</div>
+<% end %>

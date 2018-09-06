@@ -1,0 +1,22 @@
+<div class="comment" id="comment-<%= comment.id %>">
+	<%= comment.content %> - 
+
+	<span class="comment-user">
+		<%= link_to comment.user.name, user_path(comment.user_id) %> 
+	</span>
+
+	<span class="timestamp">
+		 <%= comment.created_at %>
+	</span>
+
+	<span class="options">
+		<% if can? :destroy, comment %>
+			
+			<%= link_to comment_path(comment), method: :delete, class: "no-btn", remote: true do %>
+			  <i class="glyphicon glyphicon-trash"></i>
+			<% end %>
+
+		<% end %>
+	</span>
+
+</div>

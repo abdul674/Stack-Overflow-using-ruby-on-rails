@@ -1,0 +1,45 @@
+
+<div class="question-summary">
+	
+	<div class="stats col-md-3">
+		<div class="col-md-4">
+			<div class="count"> <%= question.votes.count %> </div>
+			<p class="sub-text"> <%= "Vote".pluralize(question.votes) %> </p> 
+		</div>
+
+		<div class="col-md-4 <%= question.answers.count > 0 ? "" : "not-" %>answered<%= question.answers.find_by(accepted: true) ? "-accepted" : "" %>">
+			<div class="count col-md-4"> <%= question.answers.count %> </div>
+			<p class="sub-text"> <%= "Answer".pluralize(question.answers.count) %> </p>
+		</div>
+
+		<div class="col-md-4">
+			<div class="count col-md-4"> 0 </div>
+			<p class="sub-text"> Views </p>
+		</div>
+	</div>
+
+	<div class="col-md-9">
+		<h3 class="question" style="overflow-wrap: break-word;">
+			<a href="<%= question_path(question.id) %>"> <%= question.title %> </a>
+		</h3>
+
+		<div class="categories col-md-12">
+			<% question.categories.all.each do |category| %>
+				<%= form_tag(questions_path, class: "category", method: :get) do |f| %>
+					<%= submit_tag category.tag, name: "tag", class: "category btn btn-sm" %>
+				<% end %>
+			<% end %>
+		</div>
+
+		<div class="posted-at">
+			<% if question.created_at == question.updated_at %>
+				asked <%= time_ago_in_words(question.created_at) %> ago 
+			<% else %>
+				modified <%= time_ago_in_words(question.created_at) %> ago 
+			<% end %>
+
+			<a href="<%= user_path(question.user.id) %>"> <%= question.user.name %> </a>
+		</div>
+	</div>
+
+</div>

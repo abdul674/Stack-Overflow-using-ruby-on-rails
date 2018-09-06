@@ -1,0 +1,17 @@
+
+<%= form_tag(polymorphic_path([answer.question, answer, Comment]), remote: true) do |f| %>
+
+	<% if can? :create, Comment %>
+		<%= text_field_tag "content-answer-#{answer.id}", nil, 
+												class:       'comment-field', 
+												placeholder: 'Add comment' %>
+	<% else %>
+		<%= text_field_tag "", nil,
+												class:       'comment-field',
+												placeholder: "You must be logged in to add a comment",
+												disabled: "disabled" %>
+	<% end %>
+
+	<%= hidden_field_tag :answer_id, answer.id %>
+
+<% end %>

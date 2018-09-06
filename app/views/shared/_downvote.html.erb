@@ -1,0 +1,14 @@
+
+
+
+<%= form_tag("/votes/update", id: "downvote", style: "text-align: center;", remote: true) do |f| %>
+
+	<%= hidden_field_tag :voteable_id,	 object.id %>
+	<%= hidden_field_tag :voteable_type, object.class.to_s %>
+	<%= hidden_field_tag :vote_value,    -1 %>
+
+	<button type="submit" class="no-btn" title="This question does not show any research effort; it is unclear or not useful">
+  	<span class="glyphicon glyphicon-triangle-bottom"></span>
+	</button>
+	
+<% end %>

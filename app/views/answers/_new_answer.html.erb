@@ -1,0 +1,7 @@
+<div class="new-answer col-md-12">
+	<h4> Your Answer </h4>
+	<%= form_for [@question, Answer.new] do |f| %>
+		<%= f.text_area :content, class: "form-control", rows: 10 %>
+		<%= f.submit "Post Answer", class: "btn btn-primary" %>
+	<% end %>
+</div>

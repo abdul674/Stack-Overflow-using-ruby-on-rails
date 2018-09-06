@@ -1,0 +1,11 @@
+<% provide(:title, "#{@user.name} - Stack Overflow") %>
+<% provide(:class, "Users") %>
+
+<div class="col-md-12 panel">
+	<h3> <%= "#{pluralize(@user.questions.count, "Question")} asked by #{@user.name}"  %> </h3>
+
+	<% @user.questions.each do |question| %>
+		<%= render 'questions/all_question', question: question %>
+	<% end %>
+ 
+</div>

@@ -1,0 +1,39 @@
+
+<div class="col-md-12 post-layout">
+	<div class="voting">
+		<%= render 'shared/upvote', object: answer %>
+
+		<div id="votes-count-<%= answer.id %>" class="votes count">
+			<%= answer.votes.sum(:value) %>
+		</div>
+
+		<%= render 'shared/downvote', object: answer %>
+
+		<% if can? :accept, answer %>
+			<%= get_link_to_accept(answer) %>
+		<% elsif answer.accepted? %>
+			<div class="glyphicon glyphicon-ok accepted"> </div>
+		<% end %>
+	</div>
+
+	<div class="question-content">
+		<h4> <%= answer.content %> </h4>
+	</div>
+
+	<div class="tmp">
+		
+	</div>
+
+	<div class="comments-container">
+		<div class="comments" id="comments-answer-<%= answer.id %>">
+			<% answer.comments.each do |comment| %>
+				<%= render 'comments/comment', comment: comment, object: answer %>
+			<% end %>
+		</div>
+
+		
+		<div class="add-comment">
+			<%= render 'answers/add_comment', answer: answer %>
+		</div>
+	</div>
+</div>

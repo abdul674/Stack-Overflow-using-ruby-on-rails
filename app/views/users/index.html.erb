@@ -1,0 +1,8 @@
+<% provide(:title, "Users - Stack Overflow") %>
+<% provide(:class, "Users") %>
+
+<% @users.each do |user| %>
+	<div class="col-md-3" style="margin-top: 10px; font-size: 16px;">
+		<%= link_to user.name, user_path(user.id) %>
+	</div>
+<% end %>
